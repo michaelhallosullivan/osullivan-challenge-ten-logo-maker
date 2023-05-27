@@ -1,5 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
+ 
+inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
 
 inquirer
   .prompt([
@@ -15,9 +18,10 @@ inquirer
         name: "shape-color",
     },
     {
-        type: "input",
+        type: "maxlength-input",
         message: "What text would you like on your logo?",
         name: "text",
+        maxLength: 3,
     },
     {
         type: "input",
