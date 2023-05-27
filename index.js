@@ -30,9 +30,18 @@ inquirer
     },
   ])
   .then((response) => {
-    const filename = `${response.name.toLowerCase().split(' ').join('')}.json`;
 
-    fs.writeFile(filename, JSON.stringify(response, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
+    //Possible response date - what to do with it?
+    response.shape
+    response.shape-color
+    response.text
+    response.text-color
+
+    //Creates generatedSVG based on text input
+    const svgName = `${response.text}.json`;
+    //Writes file called logo.svg
+    fs.writeFile("logo.svg", svgName, (err) =>
+    err ? console.error(err) : console.log("Generated logo.svg")
     );
-  });
+
+});
