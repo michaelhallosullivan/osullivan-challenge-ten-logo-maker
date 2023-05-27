@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Logo = require("./lib/shapes.js");
+const { Logo, Circle, Square, Triangle } = require("./lib/shapes.js");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
  
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
@@ -31,11 +31,26 @@ inquirer
     },
   ])
   .then((response) => {
-    //generates Logo using Logo constructor imported from shapes.js
     const generatedLogo = new Logo(response.shape, response.shapeColor, response.text, response.textColor);
-    //runs generateSVG with the new response data
-    const logoSVG = generatedLogo.generateSVG();
-    //Writes file called logo.svg
+    let Shape = "";
+    if (generatedLogo.shape === "circle") {
+            Shape = Circle
+        }
+    else if (generatedLogo.shape === "square") {
+            Shape = Square
+        }
+    else if (generatedLogo.shape === "triangle") {
+            Shape = Triangle
+    };
+    let logoSVG =
+        `<svg width="300px" height="200px" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <${Shape} fill="${generatedLogo.shapeColor}"/>
+                <text font="Georgia" fill="${generatedLogo.textColor}">
+                ${generatedLogo.text}
+                </text>
+            </g>
+        </svg>`;
     fs.writeFile("logo.svg", logoSVG, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
     );
