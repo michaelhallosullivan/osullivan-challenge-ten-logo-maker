@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Logo = require("./lib/shapes.js");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
  
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
@@ -15,7 +16,7 @@ inquirer
     {
         type: "input",
         message: "What color would you like your shape to be?",
-        name: "shape-color",
+        name: "shapeColor",
     },
     {
         type: "maxlength-input",
@@ -26,22 +27,16 @@ inquirer
     {
         type: "input",
         message: "What color would you like your text to be?",
-        name: "text-color",
+        name: "textColor",
     },
   ])
   .then((response) => {
-
-    //Possible response date - what to do with it?
-    response.shape
-    response.shape-color
-    response.text
-    response.text-color
-
-    //Creates generatedSVG based on text input
-    const svgName = `${response.text}.json`;
+    //generates Logo using Logo constructor imported from shapes.js
+    const generatedLogo = new Logo(response.shape, response.shapeColor, response.text, response.textColor);
+    //runs generateSVG with the new response data
+    const logoSVG = generatedLogo.generateSVG();
     //Writes file called logo.svg
-    fs.writeFile("logo.svg", svgName, (err) =>
+    fs.writeFile("logo.svg", logoSVG, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
     );
-
 });
