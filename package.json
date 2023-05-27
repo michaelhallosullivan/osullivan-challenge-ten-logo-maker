@@ -1,0 +1,23 @@
+{
+  "name": "osullivan-challenge-ten-logo-maker",
+  "version": "1.0.0",
+  "description": "AS a freelance web developer\r I WANT to generate a simple logo for my projects\r SO THAT I don't have to pay a graphic designer",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelhallosullivan/osullivan-challenge-ten-logo-maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelhallosullivan/osullivan-challenge-ten-logo-maker/issues"
+  },
+  "homepage": "https://github.com/michaelhallosullivan/osullivan-challenge-ten-logo-maker#readme"
+}
