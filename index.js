@@ -45,10 +45,8 @@ inquirer
     let logoSVG =
     `<svg width="300px" height="200px" xmlns="http://www.w3.org/2000/svg">
         <g>
-            <${Shape} fill="${generatedLogo.shapeColor}"/>
-            <text font="Georgia" fill="${generatedLogo.textColor}">
-            ${generatedLogo.text}
-            </text>
+        <${Shape} fill="${generatedLogo.shapeColor}"></${generatedLogo.shape}>
+        <text x="112.5px" y="105px" font-size="30px" font-family="Georgia" fill="${generatedLogo.textColor}">${generatedLogo.text}</text>
         </g>
     </svg>`;
     fs.writeFile("logo.svg", logoSVG, (err) =>
