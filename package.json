@@ -7,9 +7,6 @@
     "inquirer": "^8.2.4",
     "inquirer-maxlength-input-prompt": "^1.0.2"
   },
-  "devDependencies": {
-    "jest": "^24.9.0"
-  },
   "directories": {
     "example": "examples",
     "lib": "lib"
@@ -23,6 +20,10 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "validate-color": "^2.2.4"
+  },
   "bugs": {
     "url": "https://github.com/michaelhallosullivan/osullivan-challenge-ten-logo-maker/issues"
   },

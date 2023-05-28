@@ -2,8 +2,19 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const { Logo, Circle, Square, Triangle } = require("./lib/shapes.js");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
+const { validateHTMLColorHex, validateHTMLColorName } = require("validate-color");
  
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
+
+const validateColor = function(response) {
+    if (validateHTMLColorName(response) === false && validateHTMLColorHex(response) === false) {
+        console.log("\x1b[31m", " Please enter a valid color keyword or hexadecimal code.");
+        return false;
+    }
+    else {
+        return true;
+    };
+};
 
 inquirer
   .prompt([
@@ -17,6 +28,7 @@ inquirer
         type: "input",
         message: "What color would you like your shape to be?",
         name: "shapeColor",
+        validate: validateColor,
     },
     {
         type: "maxlength-input",
@@ -28,6 +40,7 @@ inquirer
         type: "input",
         message: "What color would you like your text to be?",
         name: "textColor",
+        validate: validateColor,
     },
   ])
   .then((response) => {
@@ -53,3 +66,8 @@ inquirer
     err ? console.error(err) : console.log("Generated logo.svg")
     );
 });
+
+module.exports = {
+    validateHTMLColorHex, 
+    validateHTMLColorName,
+};
