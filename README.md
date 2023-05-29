@@ -20,3 +20,27 @@ THEN an SVG file is created named `logo.svg`
 AND the output text "Generated logo.svg" is printed in the command line
 WHEN I open the `logo.svg` file in a browser
 THEN I am shown a 300x200 pixel image that matches the criteria I entered
+
+## Description
+
+Students are tasked with creating a command-line application using Node.js that will generate a logo based on user input. Users will be prompted with questions regarding the desired logo using the Node package Inquirer. After responding to the questions an SVG file will be created with the desired logo. Users will be able to choose from 3 logo shapes (circle, square, or triangle), choose a color for the desired shape, choose 3 characters of desired text, and choose the color for the desired text. Using the Node package Jest, a suite of tests will be run to ensure proper functionality of the application.
+
+## Installation
+
+Run npm install and the necessary modules will be installed from package.json.
+
+## Usage
+
+This logo creator can be used to create custom logos and store them as an SVG file.
+
+Video Walkthrough - (https://drive.google.com/file/d/1bmvjgcyPEuxmURZgXUQV8rbdSfKNVfIV/view)
+
+## Credits
+
+Used Node.js and node packages Inquirer (https://www.npmjs.com/package/inquirer), Jest (https://jestjs.io/), Validate-Color (https://www.npmjs.com/package/validate-color?activeTab=readme), and Inquirer-maxlength-input-prompt (https://www.npmjs.com/package/inquirer-maxlength-input-prompt). All code written by Michael O'Sullivan.
+
+## License
+
+MIT License
+
+![Model](https://github.com/michaelhallosullivan/osullivan-challenge-ten-logo-maker/blob/main/examples/svg-example.svg)
