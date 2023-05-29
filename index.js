@@ -46,6 +46,7 @@ inquirer
   .then((response) => {
     const generatedLogo = new Logo(response.shape, response.shapeColor, response.text, response.textColor);
     let Shape = "";
+    function checkShape() {
     if (generatedLogo.shape === "circle") {
             Shape = new Circle();
         }
@@ -54,7 +55,9 @@ inquirer
         }
     else if (generatedLogo.shape === "triangle") {
             Shape = new Triangle();
+    }
     };
+    checkShape();
     let logoSVG =
     `<svg width="300px" height="200px" xmlns="http://www.w3.org/2000/svg">
         <g>
